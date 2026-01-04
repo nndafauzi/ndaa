@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>I Love You ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    z-index: 2;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: white;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+.photos {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.photos img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+.photos img:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+p {
+    margin-top: 20px;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* LOVE FALLING */
+.heart {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    color: #ffdde1;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>I Love You ❤️</h1>
+
+    <div class="photos">
+        <!-- GANTI FOTO -->
+        <img src="ndaa.jpg">
+        <img src="ndaa2.jpg">
+    </div>
+
+    <p>
+       sayang aku bangga banget punya kamuu💕<br>
+       maap aku gabisa ngasih lebih 
+       maap gabisa kaya cwo lain  ❤️
+    </p>
+</div>
+
+<!-- SCRIPT LOVE -->
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 200);
+</script>
+
+</body>
+</html>
